@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pizzaria_night_light_0: -3127862878760728500
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
