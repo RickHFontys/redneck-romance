@@ -12,6 +12,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Button secondndAmendmentChooseButton;
     [SerializeField] private Button backToMenu;
 
+    [SerializeField] private Character shotgun;
+    [SerializeField] private Character tractor;
+    [SerializeField] private Character secondAmendment;
+
     private void Start()
     {
         dateSelectionPanel.SetActive(false);
@@ -36,18 +40,20 @@ public class MenuManager : MonoBehaviour
 
     private void OnShotgunChosen()
     {
+        GameManager.Instance.ChosenCharacter = shotgun;
         SceneManager.LoadScene("GameScene");
-        //TODO: Make sure that the gamemanager knows which character is chosen for the game scene
     }
 
     private void OnTractorChosen()
     {
-        Debug.Log("Tractor chosen");
+        GameManager.Instance.ChosenCharacter = tractor;
+        SceneManager.LoadScene("GameScene");
     }
 
     private void OnSecondAmendmentChosen()
     {
-        Debug.Log("Second Amendment chosen");
+        GameManager.Instance.ChosenCharacter = secondAmendment;
+        SceneManager.LoadScene("GameScene");
     }
 
     private void OnBackToMenuPressed()
