@@ -9,7 +9,7 @@ public class Rizzometer : MonoBehaviour
     public int maxLove = 100;
 
     [SerializeField] 
-    private int love = 0;              // Shows in Inspector for debugging
+    private int love = 50;     
 
     [Header("UI")]
     public Slider loveSlider;          // Drag your UI Slider here
@@ -18,7 +18,6 @@ public class Rizzometer : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton setup
         if (Instance != this && Instance != null)
         {
             Destroy(gameObject);
@@ -29,10 +28,9 @@ public class Rizzometer : MonoBehaviour
 
     private void Start()
     {
-        // Auto-assign if not manually set
         if (loveSlider == null)
         {
-            loveSlider = FindObjectOfType<Slider>();
+            loveSlider = GameObject.FindWithTag("Rizzometer").GetComponentInChildren<Slider>();
         }
 
         if (loveSlider != null)
