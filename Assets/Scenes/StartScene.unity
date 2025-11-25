@@ -750,6 +750,9 @@ MonoBehaviour:
   tractorChooseButton: {fileID: 995203363}
   secondndAmendmentChooseButton: {fileID: 1843112253}
   backToMenu: {fileID: 1993859323}
+  shotgun: {fileID: 11400000, guid: 6d6018ace0f186140b980cb63875cca9, type: 2}
+  tractor: {fileID: 11400000, guid: bce49ef4e3c02554b9091e6c28f8bd28, type: 2}
+  secondAmendment: {fileID: 11400000, guid: 95f80024a6f145f43a4116190962b4e3, type: 2}
 --- !u!1 &635029039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,6 +1913,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1402585642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1402585644}
+  - component: {fileID: 1402585643}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1402585643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402585642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8088163b871c77347b5a0741459412c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1402585644
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402585642}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1494706500
 GameObject:
   m_ObjectHideFlags: 0
@@ -2849,3 +2896,4 @@ SceneRoots:
   - {fileID: 1494706503}
   - {fileID: 619381706}
   - {fileID: 1355262915}
+  - {fileID: 1402585644}

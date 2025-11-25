@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fafeb349f8677bb4f9142b4a425537ab, type: 3}
   m_Name: Test2DialogueNode
   m_EditorClassIdentifier: 
-  speaker: {fileID: 11400000, guid: 58851d6b4e6f7aa4b860b2c700e997b7, type: 2}
+  speaker: {fileID: 11400000, guid: 6d6018ace0f186140b980cb63875cca9, type: 2}
   text: 'Test node 2
 
 '

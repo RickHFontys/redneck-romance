@@ -1034,7 +1034,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e98ce65ee6b9a342a2cf136debed14d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentNode: {fileID: 11400000, guid: 1c6e5aedcbad0084ba177fa8d21aa3ae, type: 2}
+  shotgunStartNode: {fileID: 11400000, guid: 1c6e5aedcbad0084ba177fa8d21aa3ae, type: 2}
+  tractorStartNode: {fileID: 11400000, guid: 7e6f0901d9a92c5479e891c30c869752, type: 2}
+  secondAmendmentStartNode: {fileID: 11400000, guid: 5c0093e1742c08843bfe946397420424, type: 2}
 --- !u!4 &974734644
 Transform:
   m_ObjectHideFlags: 0
@@ -1220,7 +1222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLove: 100
-  love: 0
+  love: 50
   loveSlider: {fileID: 2117909683}
 --- !u!1 &1458386873
 GameObject:

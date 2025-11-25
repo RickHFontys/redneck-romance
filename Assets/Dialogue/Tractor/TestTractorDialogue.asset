@@ -10,16 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fafeb349f8677bb4f9142b4a425537ab, type: 3}
-  m_Name: Test1DialogueNode
+  m_Name: TestTractorDialogue
   m_EditorClassIdentifier: 
-  speaker: {fileID: 11400000, guid: 6d6018ace0f186140b980cb63875cca9, type: 2}
-  text: 'Hello
-
-'
+  speaker: {fileID: 11400000, guid: bce49ef4e3c02554b9091e6c28f8bd28, type: 2}
+  text: Vroom vroom!
   responses:
-  - {fileID: 11400000, guid: c81a3c372d6e3a24491d7ee1aca21bef, type: 2}
-  - {fileID: 11400000, guid: 05f39e664f4cae64fbec078cdd8eaeb0, type: 2}
+  - {fileID: 11400000, guid: 66b806fab2303b647a32a13006e3a0e7, type: 2}
   nextNodes:
-  - {fileID: 11400000, guid: 0a259e38aa336474396e880da05822ca, type: 2}
-  - {fileID: 11400000, guid: eb98c5919d835c045b9bf9c795e446c9, type: 2}
+  - {fileID: 11400000, guid: acea181acdd7e704e9ae51f6b2c99763, type: 2}
   tags: []
