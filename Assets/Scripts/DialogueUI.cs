@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class DialogueUI : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class DialogueUI : MonoBehaviour
     public Text dialogueText;
 
     public Button[] responseButtons; // Assign in inspector
+
+    [Header("Typewriter Settings")]
+    public float typingSpeed = 0.03f;   // lower = faster
+    private Coroutine typingCoroutine;
 
     private void OnEnable()
     {
@@ -22,9 +27,17 @@ public class DialogueUI : MonoBehaviour
 
     void UpdateUI(DialogueNode node)
     {
+        // Update speaker name
         speakerNameText.text = node.speaker != null ? node.speaker.characterName : "???";
-        dialogueText.text = node.text;
 
+        // Stop previous typewriter effect if still running
+        if (typingCoroutine != null)
+            StopCoroutine(typingCoroutine);
+
+        // Start new typewriter animation
+        typingCoroutine = StartCoroutine(TypeText(node.text));
+
+        // Set up response buttons
         for (int i = 0; i < responseButtons.Length; i++)
         {
             if (i < node.responses.Count)
@@ -44,6 +57,17 @@ public class DialogueUI : MonoBehaviour
             {
                 responseButtons[i].gameObject.SetActive(false);
             }
+        }
+    }
+
+    IEnumerator TypeText(string fullText)
+    {
+        dialogueText.text = ""; // clear before typing
+
+        foreach (char c in fullText)
+        {
+            dialogueText.text += c;
+            yield return new WaitForSeconds(typingSpeed);
         }
     }
 }
