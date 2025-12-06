@@ -9,5 +9,7 @@ public class ResponseOption : ScriptableObject
 
     public int loveChange; // Can be negative or positive
 
+    public AudioClip responseSFX;
+
     public List<string> tags = new List<string>();
 }

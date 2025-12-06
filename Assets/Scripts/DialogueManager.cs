@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
@@ -37,6 +38,15 @@ public class DialogueManager : MonoBehaviour
         // Apply love change
         Rizzometer.Instance.ApplyChange(response.loveChange);
 
+        if (response.responseSFX != null)
+        {
+            SoundFXManager.Instance.PlaySoundFXClip(response.responseSFX, transform, 1f);
+        }
+        else
+        {
+            Debug.LogWarning($"No sound effect is attached to this response option: {response.name}");
+        }
+        
         // Find index of this response
         int index = currentNode.responses.IndexOf(response);
 
