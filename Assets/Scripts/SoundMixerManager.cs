@@ -24,7 +24,4 @@ public class SoundMixerManager : MonoBehaviour
     {
         audioMixer.SetFloat("ambienceVolume", Mathf.Log10(level) * 20f);
     }
-
-    //TODO: Set audio settings sliders values to max: 1 and min: 0.0001
-    //TODO: Set this scripts as On Value Changed events and set dynamic floats with these functions for each slider
 }
