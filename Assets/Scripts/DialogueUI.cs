@@ -63,11 +63,14 @@ public class DialogueUI : MonoBehaviour
     IEnumerator TypeText(string fullText)
     {
         dialogueText.text = ""; // clear before typing
+        GameManager.Instance.IsTimerPaused = true;
 
         foreach (char c in fullText)
         {
             dialogueText.text += c;
             yield return new WaitForSeconds(typingSpeed);
         }
+
+        GameManager.Instance.IsTimerPaused = false;
     }
 }

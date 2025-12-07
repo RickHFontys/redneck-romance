@@ -27,6 +27,7 @@ public class Timer : MonoBehaviour
     private void Update()
     {
         if (stopTimer) return;
+        if (GameManager.Instance.IsTimerPaused) return;
 
         currentTime -= Time.deltaTime;
 

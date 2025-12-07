@@ -10,6 +10,13 @@ public class GameManager : MonoBehaviour
     private GameObject pauseMenuPanel;
     private Character chosenCharacter;
     private bool isPaused = false;
+    private bool isTimerPaused = false;
+
+    public bool IsTimerPaused
+    {
+        get { return isTimerPaused; }
+        set { isTimerPaused = value; }
+    }
 
     public Character ChosenCharacter
     {
