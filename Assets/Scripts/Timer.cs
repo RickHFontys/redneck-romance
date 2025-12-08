@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
     [SerializeField] private Slider timerSlider;
     [SerializeField] private Text timerText;
+    //[SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private float maxTimerValue;
 
     private bool stopTimer;
