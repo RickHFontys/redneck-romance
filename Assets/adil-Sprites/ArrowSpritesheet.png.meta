@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 00afc8ab06def304ba834ce9b23c1cda
+guid: dbbfc4e2df18b694ea0f887fb0398794
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6493561383292052313
-    second: HeartUpsheet_0
+      213: -6676217336824868478
+    second: ArrowSpritesheet_0
+  - first:
+      213: 4486120970277932055
+    second: ArrowSpritesheet_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HeartUpsheet_0
+      name: ArrowSpritesheet_0
       rect:
         serializedVersion: 2
-        x: 19
+        x: 1
         y: 4
-        width: 26
-        height: 25
+        width: 38
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 953215a7ca3cd1a50800000000000000
-      internalID: 6493561383292052313
+      spriteID: 281df3b44bf4953a0800000000000000
+      internalID: -6676217336824868478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArrowSpritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 4
+        width: 38
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71cc8d40147e14e30800000000000000
+      internalID: 4486120970277932055
       vertices: []
       indices: 
       edges: []
@@ -134,8 +159,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      HeartUpsheet_0: 6493561383292052313
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

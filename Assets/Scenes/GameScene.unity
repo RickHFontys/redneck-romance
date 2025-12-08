@@ -1224,8 +1224,8 @@ MonoBehaviour:
   maxLove: 100
   love: 50
   loveSlider: {fileID: 2117909683}
-  vfxIncreasePrefab: {fileID: 4239253509661857625, guid: 23b9872d22898df418c508fcb31261ca, type: 3}
-  vfxDecreasePrefab: {fileID: 3813653316429980281, guid: 0bc2c5545d502af4d8dd622c1907d81b, type: 3}
+  vfxIncreasePrefab: {fileID: 3485518491621689817, guid: 23b9872d22898df418c508fcb31261ca, type: 3}
+  vfxDecreasePrefab: {fileID: 3485518491621689817, guid: 0740cbdbd579a414f93640b103369693, type: 3}
 --- !u!1 &1458386873
 GameObject:
   m_ObjectHideFlags: 0

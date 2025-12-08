@@ -16,6 +16,8 @@ MonoBehaviour:
   text: 'Test node 2
 
 '
-  responses: []
-  nextNodes: []
+  responses:
+  - {fileID: 11400000, guid: c81a3c372d6e3a24491d7ee1aca21bef, type: 2}
+  nextNodes:
+  - {fileID: 11400000, guid: 1c6e5aedcbad0084ba177fa8d21aa3ae, type: 2}
   tags: []
