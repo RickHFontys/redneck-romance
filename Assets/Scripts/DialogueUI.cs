@@ -8,7 +8,7 @@ public class DialogueUI : MonoBehaviour
     public DialogueManager manager;
 
     public TextMeshProUGUI speakerNameText;
-    public Text dialogueText;
+    public TextMeshProUGUI dialogueText;
 
     public Button[] responseButtons; // Assign in inspector
 
