@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class DialogueUI : MonoBehaviour
 {
     public DialogueManager manager;
 
-    public Text speakerNameText;
-    public Text dialogueText;
+    public TextMeshProUGUI speakerNameText;
+    public TextMeshProUGUI dialogueText;
 
     public Button[] responseButtons; // Assign in inspector
 
