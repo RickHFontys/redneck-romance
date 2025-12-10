@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 
 public class DialogueUI : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class DialogueUI : MonoBehaviour
 
     [Header("Typewriter Settings")]
     public float typingSpeed = 0.03f;   // lower = faster
+    public AudioClip typingSoundFX;
+    public AudioClip[] characterCasualSoundFX;
+    private AudioClip characterTypingFX;
     private Coroutine typingCoroutine;
 
     private void OnEnable()
@@ -63,12 +67,29 @@ public class DialogueUI : MonoBehaviour
 
     IEnumerator TypeText(string fullText)
     {
+        switch (GameManager.Instance.ChosenCharacter.characterName)
+        {
+            case "Shotty": // Shotgun
+                characterTypingFX = characterCasualSoundFX[0];
+                break;
+            case "Angelica": // Tractor
+                characterTypingFX = characterCasualSoundFX[1];
+                break;
+            case "Amanda II": // 2nd Amendment
+                characterTypingFX = characterCasualSoundFX[2];
+                break;
+            default:
+                break;
+        }
         dialogueText.text = ""; // clear before typing
         GameManager.Instance.IsTimerPaused = true;
+        SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(characterTypingFX, transform, 1f);
 
         foreach (char c in fullText)
         {
             dialogueText.text += c;
+            if (typingSoundFX != null)
+                SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(typingSoundFX, transform, 0.3f);
             yield return new WaitForSeconds(typingSpeed);
         }
 

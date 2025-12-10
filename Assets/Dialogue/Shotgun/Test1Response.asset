@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Test1Response
   m_EditorClassIdentifier: 
   text: HI
-  loveChange: 10
+  loveChange: 5
   tags: []

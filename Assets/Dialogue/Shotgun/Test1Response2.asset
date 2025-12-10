@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fafeb349f8677bb4f9142b4a425537ab, type: 3}
-  m_Name: Test3DialogueNode
+  m_Script: {fileID: 11500000, guid: b88e3a9a17c27dd418dd7b267ecd2511, type: 3}
+  m_Name: Test1Response2
   m_EditorClassIdentifier: 
-  speaker: {fileID: 11400000, guid: 6d6018ace0f186140b980cb63875cca9, type: 2}
-  text: U are Rude
-  responses: []
-  nextNodes: []
+  text: NO
+  loveChange: -10
   tags: []
