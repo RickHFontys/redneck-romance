@@ -10,6 +10,8 @@ public class Timer : MonoBehaviour
     //[SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private float maxTimerValue;
 
+    public Crossfade crossfade;
+
     private bool stopTimer;
     private float currentTime;
 
@@ -39,6 +41,7 @@ public class Timer : MonoBehaviour
             stopTimer = true;
             timerText.text = "0.000";
             timerSlider.value = 0;
+            StartCoroutine(crossfade.ChangeScene("EndScene"));
         }
 
         if (!stopTimer)

@@ -16,6 +16,8 @@ public class Rizzometer : MonoBehaviour
 
     public int Love => love;           // Read-only from other scripts
 
+    public Crossfade crossfade;
+
     private void Awake()
     {
         if (Instance != this && Instance != null)
@@ -53,6 +55,15 @@ public class Rizzometer : MonoBehaviour
         if (love != oldLove && loveSlider != null)
         {
             loveSlider.value = love;
+        }
+
+        if(love <= 0)
+        {
+            StartCoroutine(crossfade.ChangeScene("EndScene"));
+        }
+        else if (love >= 100)
+        {
+            StartCoroutine(crossfade.ChangeScene("EndeScene"));
         }
 
         Debug.Log($"[Rizzometer] Love updated: {love}");

@@ -10,6 +10,8 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private Button menuButton;
     [SerializeField] private Button quitButton;
 
+    public Crossfade crossfade;
+
     private void Start()
     {
         backButton.onClick.AddListener(OnBackPressed);
@@ -24,7 +26,8 @@ public class PauseMenuManager : MonoBehaviour
 
     private void OnMenuPressed()
     {
-        SceneManager.LoadScene("StartScene");
+        Time.timeScale = 1;
+        StartCoroutine(crossfade.ChangeScene("StartScene"));
     }
 
     private void OnBackPressed()
