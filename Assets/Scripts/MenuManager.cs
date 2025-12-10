@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
+using Unity.VisualScripting;
 
 public class MenuManager : MonoBehaviour
 {
@@ -16,6 +18,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Character shotgun;
     [SerializeField] private Character tractor;
     [SerializeField] private Character secondAmendment;
+
+    public Crossfade crossfade;
 
     private void Start()
     {
@@ -42,19 +46,19 @@ public class MenuManager : MonoBehaviour
     private void OnShotgunChosen()
     {
         GameManager.Instance.ChosenCharacter = shotgun;
-        SceneManager.LoadScene("GameScene");
+        StartCoroutine(crossfade.ChangeScene("GameScene"));
     }
 
     private void OnTractorChosen()
     {
         GameManager.Instance.ChosenCharacter = tractor;
-        SceneManager.LoadScene("GameScene");
+        StartCoroutine(crossfade.ChangeScene("GameScene"));
     }
 
     private void OnSecondAmendmentChosen()
     {
         GameManager.Instance.ChosenCharacter = secondAmendment;
-        SceneManager.LoadScene("GameScene");
+        StartCoroutine(crossfade.ChangeScene("GameScene"));
     }
 
     private void OnBackToMenuPressed()
