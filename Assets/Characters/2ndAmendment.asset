@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb724b6748f67446bb9163af2c2f1e4, type: 3}
   m_Name: 2ndAmendment
   m_EditorClassIdentifier: 
-  characterName: 2ndAmendment
+  characterName: Amanda II
   characterImage: {fileID: 8518857350414691307, guid: 5937aed8105e2da46a5f657ceef888d2, type: 3}

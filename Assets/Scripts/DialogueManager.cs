@@ -1,3 +1,4 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,6 +8,14 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private DialogueNode shotgunStartNode;
     [SerializeField] private DialogueNode tractorStartNode;
     [SerializeField] private DialogueNode secondAmendmentStartNode;
+
+    [SerializeField] private AudioClip[] shotgunSoundFX;
+    [SerializeField] private AudioClip[] tractorSoundFX;
+    [SerializeField] private AudioClip[] secondndAmendmentSoundFX;
+
+    [SerializeField] private Image[] shotgunSprites;
+    [SerializeField] private Image[] tractorSprites;
+    [SerializeField] private Image[] secondAmendmentSprites;
 
     public delegate void DialogueUpdated(DialogueNode node);
     public event DialogueUpdated OnDialogueUpdated;
@@ -38,13 +47,19 @@ public class DialogueManager : MonoBehaviour
         // Apply love change
         Rizzometer.Instance.ApplyChange(response.loveChange);
 
-        if (response.responseSFX != null)
+        switch (GameManager.Instance.ChosenCharacter.characterName)
         {
-            SoundFXManager.Instance.PlaySoundFXClip(response.responseSFX, transform, 1f);
-        }
-        else
-        {
-            Debug.LogWarning($"No sound effect is attached to this response option: {response.name}");
+            case "Shotty": // Shotgun
+                ApplyShotgunSFXAndSprite(response.loveChange);
+                break;
+            case "Angelica": // Tractor
+                ApplyTractorSFXAndSprite(response.loveChange);
+                break;
+            case "Amanda II": // 2nd Amendment
+                ApplySecondAmendmentSFXAndSprite(response.loveChange);
+                break;
+            default:
+                break;
         }
         
         // Find index of this response
@@ -65,5 +80,53 @@ public class DialogueManager : MonoBehaviour
     {
         currentNode = node;
         OnDialogueUpdated?.Invoke(node);
+    }
+
+    private void ApplyShotgunSFXAndSprite(int loveChange)
+    {
+        if (loveChange >= -5 && loveChange <= 5)
+        {
+            SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(shotgunSoundFX[0], transform, 1);
+        }
+        else if (loveChange > 5)
+        {
+            SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(shotgunSoundFX[1], transform, 1);
+        }
+        else if (loveChange < -5)
+        {
+            SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(shotgunSoundFX[2], transform, 1);
+        }
+    }
+
+    private void ApplyTractorSFXAndSprite(int loveChange)
+    {
+        if (loveChange >= -5 && loveChange <= 5)
+        {
+            SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(tractorSoundFX[0], transform, 1);
+        }
+        else if (loveChange > 5)
+        {
+            SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(tractorSoundFX[1], transform, 1);
+        }
+        else if (loveChange < -5)
+        {
+            SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(tractorSoundFX[2], transform, 1);
+        }
+    }
+
+    private void ApplySecondAmendmentSFXAndSprite(int loveChange)
+    {
+        if (loveChange >= -5 && loveChange <= 5)
+        {
+            SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(secondndAmendmentSoundFX[0], transform, 1);
+        }
+        else if (loveChange > 5)
+        {
+            SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(secondndAmendmentSoundFX[1], transform, 1);
+        }
+        else if (loveChange < -5)
+        {
+            SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(secondndAmendmentSoundFX[2], transform, 1);
+        }
     }
 }

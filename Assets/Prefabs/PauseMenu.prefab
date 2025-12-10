@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -145.5, y: 420}
-  m_SizeDelta: {x: 175, y: 100}
+  m_AnchoredPosition: {x: -109, y: 420}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6917910224062730205
 CanvasRenderer:
@@ -1133,18 +1133,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 91f276af142235949aaf4428206934db, type: 3}
-    m_FontSize: 76
+    m_FontSize: 108
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 7
-    m_MaxSize: 87
+    m_MaxSize: 127
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BACK
+  m_Text: X
 --- !u!1 &3990471028655526668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,6 +1627,8 @@ MonoBehaviour:
   backButton: {fileID: 2062148163706466109}
   menuButton: {fileID: 4241130823181870713}
   quitButton: {fileID: 1723986695510434539}
+  buttonSFX: {fileID: 8300000, guid: 8c97a8a56f5004d43a8c104b219d150d, type: 3}
+  crossfade: {fileID: 0}
 --- !u!1 &5342036617069060383
 GameObject:
   m_ObjectHideFlags: 0
