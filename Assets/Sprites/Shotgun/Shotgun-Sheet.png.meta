@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 0985085e8c2ca0f478d03bf4c3f3df8f
+guid: c6de00becfc28824a8b90caedb1351b3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6131987618400354353
-    second: Flip-Off_Hand_0
+      213: 17450447491162352
+    second: Shotgun-Sheet_0
+  - first:
+      213: 8518857350414691307
+    second: Shotgun-Sheet_1
+  - first:
+      213: -8748882734853009771
+    second: Shotgun-Sheet_2
+  - first:
+      213: 5087884616720737731
+    second: Shotgun-Sheet_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,13 +55,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
-  spriteBorder: {x: 8, y: 0, z: 0, w: 18}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -100,23 +109,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Flip-Off_Hand_0
+      name: Shotgun-Sheet_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 0
-        width: 121
-        height: 143
+        x: 2
+        y: 53
+        width: 155
+        height: 42
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 130c8d11042391550800000000000000
-      internalID: 6131987618400354353
+      spriteID: 0f0e1ebe61ffd3000800000000000000
+      internalID: 17450447491162352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shotgun-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 3
+        width: 42
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beb61b710af093670800000000000000
+      internalID: 8518857350414691307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shotgun-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 63
+        width: 19
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59ec9879189b59680800000000000000
+      internalID: -8748882734853009771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shotgun-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 63
+        width: 23
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c560d52a1ccb9640800000000000000
+      internalID: 5087884616720737731
       vertices: []
       indices: 
       edges: []
@@ -125,8 +200,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Flip-Off_Hand_0: 6131987618400354353
+      Shotgun-Sheet_0: 17450447491162352
+      Shotgun-Sheet_1: 8518857350414691307
+      Shotgun-Sheet_2: -8748882734853009771
+      Shotgun-Sheet_3: 5087884616720737731
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

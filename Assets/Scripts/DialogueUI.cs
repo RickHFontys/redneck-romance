@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 
 public class DialogueUI : MonoBehaviour
 {
@@ -11,10 +10,13 @@ public class DialogueUI : MonoBehaviour
     public TextMeshProUGUI speakerNameText;
     public TextMeshProUGUI dialogueText;
 
-    public Button[] responseButtons; // Assign in inspector
+    public Button[] responseButtons;
+
+    [Header("Character Sprite UI")]
+    public SpriteRenderer characterRenderer;
 
     [Header("Typewriter Settings")]
-    public float typingSpeed = 0.03f;   // lower = faster
+    public float typingSpeed = 0.03f;
     public AudioClip typingSoundFX;
     public AudioClip[] characterCasualSoundFX;
     private AudioClip characterTypingFX;
@@ -32,22 +34,28 @@ public class DialogueUI : MonoBehaviour
 
     void UpdateUI(DialogueNode node)
     {
-        // Update speaker name
+        // -------------------------
+        // SPEAKER NAME
+        // -------------------------
         speakerNameText.text = node.speaker != null ? node.speaker.characterName : "???";
 
-        // Stop previous typewriter effect if still running
+        // -------------------------
+        // TYPEWRITER RESET
+        // -------------------------
         if (typingCoroutine != null)
             StopCoroutine(typingCoroutine);
 
-        // Start new typewriter animation
         typingCoroutine = StartCoroutine(TypeText(node.text));
 
-        // Set up response buttons
+        // -------------------------
+        // RESPONSE BUTTONS
+        // -------------------------
         for (int i = 0; i < responseButtons.Length; i++)
         {
             if (i < node.responses.Count)
             {
                 var option = node.responses[i];
+
                 responseButtons[i].gameObject.SetActive(true);
                 responseButtons[i].GetComponentInChildren<Text>().text = option.text;
 
@@ -55,6 +63,7 @@ public class DialogueUI : MonoBehaviour
                 responseButtons[i].onClick.RemoveAllListeners();
                 responseButtons[i].onClick.AddListener(() =>
                 {
+                    ApplyCharacterExpression(option);
                     manager.ChooseResponse(node.responses[index]);
                 });
             }
@@ -65,34 +74,79 @@ public class DialogueUI : MonoBehaviour
         }
     }
 
+    // ------------------------------------------------------------
+    // TYPEWRITER EFFECT
+    // ------------------------------------------------------------
     IEnumerator TypeText(string fullText)
     {
+        // Set who is talking sound
         switch (GameManager.Instance.ChosenCharacter.characterName)
         {
-            case "Shotty": // Shotgun
+            case "Shotty":
                 characterTypingFX = characterCasualSoundFX[0];
                 break;
-            case "Angelica": // Tractor
+            case "Angelica":
                 characterTypingFX = characterCasualSoundFX[1];
                 break;
-            case "Amanda II": // 2nd Amendment
+            case "Amanda II":
                 characterTypingFX = characterCasualSoundFX[2];
                 break;
             default:
                 break;
         }
-        dialogueText.text = ""; // clear before typing
+
+        dialogueText.text = "";
         GameManager.Instance.IsTimerPaused = true;
+
         SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(characterTypingFX, transform, 1f);
 
         foreach (char c in fullText)
         {
             dialogueText.text += c;
+
             if (typingSoundFX != null)
                 SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(typingSoundFX, transform, 0.3f);
+
             yield return new WaitForSeconds(typingSpeed);
         }
 
         GameManager.Instance.IsTimerPaused = false;
+    }
+
+    // ------------------------------------------------------------
+    // EXPRESSION HANDLER
+    // ------------------------------------------------------------
+    void ApplyCharacterExpression(ResponseOption option)
+    {
+        if (GameManager.Instance.ChosenCharacter == null)
+            return;
+
+        var chara = GameManager.Instance.ChosenCharacter;
+
+        if (characterRenderer == null)
+            return;
+
+        // Determine sprite based on response tag(s)
+        if (option.tags.Contains("happy") && chara.happySprite != null)
+        {
+            characterRenderer.sprite = chara.happySprite;
+        }
+        else if (option.tags.Contains("angry") && chara.angrySprite != null)
+        {
+            characterRenderer.sprite = chara.angrySprite;
+        }
+        else if (option.tags.Contains("sad") && chara.sadSprite != null)
+        {
+            characterRenderer.sprite = chara.sadSprite;
+        }
+        else if (option.tags.Contains("neutral") && chara.neutralSprite != null)
+        {
+            characterRenderer.sprite = chara.neutralSprite;
+        }
+        else
+        {
+            // fallback
+            characterRenderer.sprite = chara.defaultSprite;
+        }
     }
 }

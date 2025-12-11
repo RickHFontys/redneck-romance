@@ -20,6 +20,9 @@ public class DialogueManager : MonoBehaviour
     public delegate void DialogueUpdated(DialogueNode node);
     public event DialogueUpdated OnDialogueUpdated;
 
+    public HandController handController;
+
+
     private void Start()
     {
         Character chosenCharacter = GameManager.Instance.ChosenCharacter;
@@ -43,38 +46,44 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void ChooseResponse(ResponseOption response)
+{
+    // Apply rizz / love change
+    Rizzometer.Instance.ApplyChange(response.loveChange);
+
+    //Apply character-specific reactions (sprite + SFX)
+    switch (GameManager.Instance.ChosenCharacter.characterName)
     {
-        // Apply love change
-        Rizzometer.Instance.ApplyChange(response.loveChange);
+        case "Shotty": // Shotgun
+            ApplyShotgunSFXAndSprite(response.loveChange);
+            break;
 
-        switch (GameManager.Instance.ChosenCharacter.characterName)
-        {
-            case "Shotty": // Shotgun
-                ApplyShotgunSFXAndSprite(response.loveChange);
-                break;
-            case "Angelica": // Tractor
-                ApplyTractorSFXAndSprite(response.loveChange);
-                break;
-            case "Amanda II": // 2nd Amendment
-                ApplySecondAmendmentSFXAndSprite(response.loveChange);
-                break;
-            default:
-                break;
-        }
-        
-        // Find index of this response
-        int index = currentNode.responses.IndexOf(response);
+        case "Angelica": // Tractor
+            ApplyTractorSFXAndSprite(response.loveChange);
+            break;
 
-        if (index >= 0 && index < currentNode.nextNodes.Count)
-        {
-            currentNode = currentNode.nextNodes[index];
-            OnDialogueUpdated?.Invoke(currentNode);
-        }
-        else
-        {
-            Debug.LogWarning("No next node available. Dialogue ends.");
-        }
+        case "Amanda II": // 2nd Amendment
+            ApplySecondAmendmentSFXAndSprite(response.loveChange);
+            break;
+        default:
+            break;
     }
+
+    //Apply hand reactions based on player response
+    handController.SetHands(response);
+
+    // Continue dialogue logic
+    int index = currentNode.responses.IndexOf(response);
+
+    if (index >= 0 && index < currentNode.nextNodes.Count)
+    {
+        currentNode = currentNode.nextNodes[index];
+        OnDialogueUpdated?.Invoke(currentNode);
+    }
+    else
+    {
+        Debug.LogWarning("No next node available. Dialogue ends.");
+    }
+}
 
     public void SetNode(DialogueNode node)
     {

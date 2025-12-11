@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: HI
   loveChange: 5
-  tags: []
+  tags:
+  - happy
+  leftHandReaction: 0
+  rightHandReaction: 0
