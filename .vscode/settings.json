@@ -66,5 +66,5 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj"
     },
-    "dotnet.defaultSolution": "redneck-romantic.sln"
+    "dotnet.defaultSolution": "20Second Gamejam.sln"
 }
