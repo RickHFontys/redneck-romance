@@ -64,7 +64,6 @@ public class DialogueManager : MonoBehaviour
         case "Amanda II": // 2nd Amendment
             ApplySecondAmendmentSFXAndSprite(response.loveChange);
             break;
-
         default:
             break;
     }

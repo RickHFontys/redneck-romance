@@ -46,7 +46,7 @@ public class MenuManager : MonoBehaviour
     private void OnShotgunChosen()
     {
         GameManager.Instance.ChosenCharacter = shotgun;
-        StartCoroutine(crossfade.ChangeScene("GameScene"));
+        StartCoroutine(crossfade.ChangeScene("GameSceneCharactersprite"));
     }
 
     private void OnTractorChosen()

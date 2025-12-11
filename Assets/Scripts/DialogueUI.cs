@@ -13,7 +13,7 @@ public class DialogueUI : MonoBehaviour
     public Button[] responseButtons;
 
     [Header("Character Sprite UI")]
-    public Image characterImage; // ← ASSIGN IN INSPECTOR
+    public SpriteRenderer characterRenderer;
 
     [Header("Typewriter Settings")]
     public float typingSpeed = 0.03f;
@@ -42,9 +42,9 @@ public class DialogueUI : MonoBehaviour
         // -------------------------
         // CHARACTER SPRITE (Idle / Default)
         // -------------------------
-        if (node.speaker != null && characterImage != null)
+        if (node.speaker != null && characterRenderer != null)
         {
-            characterImage.sprite = node.speaker.defaultSprite;
+            characterRenderer.sprite = node.speaker.defaultSprite;
         }
 
         // -------------------------
@@ -131,30 +131,30 @@ public class DialogueUI : MonoBehaviour
 
         var chara = GameManager.Instance.ChosenCharacter;
 
-        if (characterImage == null)
+        if (characterRenderer == null)
             return;
 
         // Determine sprite based on response tag(s)
         if (option.tags.Contains("happy") && chara.happySprite != null)
         {
-            characterImage.sprite = chara.happySprite;
+            characterRenderer.sprite = chara.happySprite;
         }
         else if (option.tags.Contains("angry") && chara.angrySprite != null)
         {
-            characterImage.sprite = chara.angrySprite;
+            characterRenderer.sprite = chara.angrySprite;
         }
         else if (option.tags.Contains("sad") && chara.sadSprite != null)
         {
-            characterImage.sprite = chara.sadSprite;
+            characterRenderer.sprite = chara.sadSprite;
         }
         else if (option.tags.Contains("neutral") && chara.neutralSprite != null)
         {
-            characterImage.sprite = chara.neutralSprite;
+            characterRenderer.sprite = chara.neutralSprite;
         }
         else
         {
             // fallback
-            characterImage.sprite = chara.defaultSprite;
+            characterRenderer.sprite = chara.defaultSprite;
         }
     }
 }
