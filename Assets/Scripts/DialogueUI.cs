@@ -40,14 +40,6 @@ public class DialogueUI : MonoBehaviour
         speakerNameText.text = node.speaker != null ? node.speaker.characterName : "???";
 
         // -------------------------
-        // CHARACTER SPRITE (Idle / Default)
-        // -------------------------
-        if (node.speaker != null && characterRenderer != null)
-        {
-            characterRenderer.sprite = node.speaker.defaultSprite;
-        }
-
-        // -------------------------
         // TYPEWRITER RESET
         // -------------------------
         if (typingCoroutine != null)
