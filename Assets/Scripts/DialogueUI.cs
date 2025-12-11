@@ -71,7 +71,7 @@ public class DialogueUI : MonoBehaviour
                 responseButtons[i].onClick.RemoveAllListeners();
                 responseButtons[i].onClick.AddListener(() =>
                 {
-                    ApplyCharacterExpression(option);   // <--- NEW
+                    ApplyCharacterExpression(option);
                     manager.ChooseResponse(node.responses[index]);
                 });
             }
