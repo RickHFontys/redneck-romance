@@ -41,6 +41,7 @@ public class Timer : MonoBehaviour
             stopTimer = true;
             timerText.text = "0.000";
             timerSlider.value = 0;
+            GameManager.Instance.GameEnding = GameEnding.bad;
             StartCoroutine(crossfade.ChangeScene("EndScene"));
         }
 

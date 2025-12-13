@@ -59,11 +59,13 @@ public class Rizzometer : MonoBehaviour
 
         if(love <= 0)
         {
+            GameManager.Instance.GameEnding = GameEnding.bad;
             StartCoroutine(crossfade.ChangeScene("EndScene"));
         }
         else if (love >= 100)
         {
-            StartCoroutine(crossfade.ChangeScene("EndeScene"));
+            GameManager.Instance.GameEnding = GameEnding.good;
+            StartCoroutine(crossfade.ChangeScene("EndScene"));
         }
 
         Debug.Log($"[Rizzometer] Love updated: {love}");
