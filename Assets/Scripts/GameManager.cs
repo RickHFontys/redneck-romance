@@ -2,6 +2,13 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum GameEnding
+{
+    none,
+    good,
+    bad
+}
+
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
@@ -9,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject pauseMenuPanel;
     private Character chosenCharacter;
+    private GameEnding gameEnding = GameEnding.none;
     private bool isPaused = false;
     private bool isTimerPaused = false;
 
@@ -22,6 +30,12 @@ public class GameManager : MonoBehaviour
     {
         get { return chosenCharacter; }
         set { chosenCharacter = value; }
+    }
+
+    public GameEnding GameEnding
+    {
+        get { return gameEnding; }
+        set { gameEnding = value; }
     }
 
     void Awake()

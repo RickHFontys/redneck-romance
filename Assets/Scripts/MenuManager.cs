@@ -46,20 +46,19 @@ public class MenuManager : MonoBehaviour
     private void OnShotgunChosen()
     {
         GameManager.Instance.ChosenCharacter = shotgun;
-        StartCoroutine(crossfade.ChangeScene("GameScene"));
-        //StartCoroutine(crossfade.ChangeScene("GameSceneCharactersprite"));
+        StartCoroutine(crossfade.ChangeScene("GameSceneCharactersprite"));
     }
 
     private void OnTractorChosen()
     {
         GameManager.Instance.ChosenCharacter = tractor;
-        StartCoroutine(crossfade.ChangeScene("GameScene"));
+        StartCoroutine(crossfade.ChangeScene("GameSceneCharactersprite"));
     }
 
     private void OnSecondAmendmentChosen()
     {
         GameManager.Instance.ChosenCharacter = secondAmendment;
-        StartCoroutine(crossfade.ChangeScene("GameScene"));
+        StartCoroutine(crossfade.ChangeScene("GameSceneCharactersprite"));
     }
 
     private void OnBackToMenuPressed()
