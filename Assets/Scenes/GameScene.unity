@@ -2033,6 +2033,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 93635e2607dcebe418c9a17978b3a5b9, type: 3}
   tractorSoundFX: []
   secondndAmendmentSoundFX: []
+  handController: {fileID: 0}
 --- !u!4 &974734644
 Transform:
   m_ObjectHideFlags: 0
@@ -2409,6 +2410,63 @@ MonoBehaviour:
   love: 50
   loveSlider: {fileID: 2117909683}
   crossfade: {fileID: 1022259478}
+--- !u!1001 &1357633719
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 297521406249955397, guid: 0a5c5127894bf6f4fbeefe30cae19e26, type: 3}
+      propertyPath: m_Name
+      value: CursorManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641899420920450792, guid: 0a5c5127894bf6f4fbeefe30cae19e26, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641899420920450792, guid: 0a5c5127894bf6f4fbeefe30cae19e26, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641899420920450792, guid: 0a5c5127894bf6f4fbeefe30cae19e26, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641899420920450792, guid: 0a5c5127894bf6f4fbeefe30cae19e26, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641899420920450792, guid: 0a5c5127894bf6f4fbeefe30cae19e26, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641899420920450792, guid: 0a5c5127894bf6f4fbeefe30cae19e26, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641899420920450792, guid: 0a5c5127894bf6f4fbeefe30cae19e26, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641899420920450792, guid: 0a5c5127894bf6f4fbeefe30cae19e26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641899420920450792, guid: 0a5c5127894bf6f4fbeefe30cae19e26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641899420920450792, guid: 0a5c5127894bf6f4fbeefe30cae19e26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0a5c5127894bf6f4fbeefe30cae19e26, type: 3}
 --- !u!1 &1364995065
 GameObject:
   m_ObjectHideFlags: 0
@@ -3218,6 +3276,7 @@ MonoBehaviour:
   responseButtons:
   - {fileID: 1458386875}
   - {fileID: 421876285}
+  characterRenderer: {fileID: 0}
   typingSpeed: 0.1
   typingSoundFX: {fileID: 8300000, guid: dc13b44af84c2ff4a8f54db1cab74c98, type: 3}
   characterCasualSoundFX:
@@ -3731,3 +3790,4 @@ SceneRoots:
   - {fileID: 1381261041}
   - {fileID: 1364995067}
   - {fileID: 394674808}
+  - {fileID: 1357633719}
