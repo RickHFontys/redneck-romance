@@ -2599,6 +2599,8 @@ MonoBehaviour:
   maxLove: 100
   love: 50
   loveSlider: {fileID: 2117909683}
+  vfxIncreasePrefab: {fileID: 3485518491621689817, guid: 99baeac1c019ece4ca1741ad74510121, type: 3}
+  vfxDecreasePrefab: {fileID: 3485518491621689817, guid: 93bb559e2461cc149b2eb2dac1a04262, type: 3}
   crossfade: {fileID: 1022259478}
 --- !u!1 &1364995065
 GameObject:

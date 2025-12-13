@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 95f3224fe94ab0044a105534a7feb232
+guid: fa410c28d065ebb4aba6a4d0595a8dc0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -689034978112728834
-    second: shotgungoodending_0
+      213: 6493561383292052313
+    second: HeartUpsheet_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shotgungoodending_0
+      name: HeartUpsheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 4000
-        height: 2252
+        x: 19
+        y: 4
+        width: 26
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef095cb865e0076f0800000000000000
-      internalID: -689034978112728834
+      spriteID: 953215a7ca3cd1a50800000000000000
+      internalID: 6493561383292052313
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      shotgungoodending_0: -689034978112728834
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
