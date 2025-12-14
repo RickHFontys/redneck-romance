@@ -12,6 +12,6 @@ public class Character : ScriptableObject
     public Sprite happySprite;
     public Sprite angrySprite;
     public Sprite neutralSprite;
-    public Sprite sadSprite;
+    public Sprite confusedSprite;
 
 }

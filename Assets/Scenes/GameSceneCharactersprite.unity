@@ -2255,16 +2255,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e98ce65ee6b9a342a2cf136debed14d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotgunStartNode: {fileID: 11400000, guid: 1c6e5aedcbad0084ba177fa8d21aa3ae, type: 2}
-  tractorStartNode: {fileID: 11400000, guid: 7e6f0901d9a92c5479e891c30c869752, type: 2}
-  secondAmendmentStartNode: {fileID: 11400000, guid: 5c0093e1742c08843bfe946397420424, type: 2}
+  handController: {fileID: 1843767587}
+  shotgunStartNodes:
+  - {fileID: 11400000, guid: 8a1edbdadbf1efb40aa8805cb2405630, type: 2}
+  - {fileID: 11400000, guid: 14d2680c07f93cf458bd3f0198a78a7a, type: 2}
   shotgunSoundFX:
   - {fileID: 8300000, guid: bb452cc3e91a45846bd0f655a329b753, type: 3}
   - {fileID: 8300000, guid: aed32d99321fd9f47b96976e0d87a5de, type: 3}
   - {fileID: 8300000, guid: 93635e2607dcebe418c9a17978b3a5b9, type: 3}
+  shotgunSprites: []
+  tractorStartNodes: []
   tractorSoundFX: []
+  tractorSprites: []
+  secondAmendmentStartNodes: []
   secondndAmendmentSoundFX: []
-  handController: {fileID: 1843767587}
+  secondAmendmentSprites: []
+  topicPool: []
+  goodEndingNode: {fileID: 0}
+  badEndingNode: {fileID: 0}
+  endingThreshold: 50
 --- !u!4 &974734644
 Transform:
   m_ObjectHideFlags: 0
@@ -3639,7 +3648,7 @@ MonoBehaviour:
   - {fileID: 1458386875}
   - {fileID: 421876285}
   characterRenderer: {fileID: 961490712}
-  typingSpeed: 0.1
+  typingSpeed: 0.05
   typingSoundFX: {fileID: 8300000, guid: dc13b44af84c2ff4a8f54db1cab74c98, type: 3}
   characterCasualSoundFX:
   - {fileID: 8300000, guid: bb452cc3e91a45846bd0f655a329b753, type: 3}

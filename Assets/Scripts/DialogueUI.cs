@@ -135,9 +135,9 @@ public class DialogueUI : MonoBehaviour
         {
             characterRenderer.sprite = chara.angrySprite;
         }
-        else if (option.tags.Contains("sad") && chara.sadSprite != null)
+        else if (option.tags.Contains("confused") && chara.confusedSprite != null)
         {
-            characterRenderer.sprite = chara.sadSprite;
+            characterRenderer.sprite = chara.confusedSprite;
         }
         else if (option.tags.Contains("neutral") && chara.neutralSprite != null)
         {
