@@ -57,7 +57,7 @@ public class DialogueUI : MonoBehaviour
                 var option = node.responses[i];
 
                 responseButtons[i].gameObject.SetActive(true);
-                responseButtons[i].GetComponentInChildren<Text>().text = option.text;
+                responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = option.text;
 
                 int index = i;
                 responseButtons[i].onClick.RemoveAllListeners();

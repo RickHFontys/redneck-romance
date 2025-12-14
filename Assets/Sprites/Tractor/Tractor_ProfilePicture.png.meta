@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 07625448c5798964a937118789e0ae13
+guid: a81fbaaa1d4501645afbafe95a4be173
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8886078856840196707
-    second: HeartSpritesheetDown_0
+      213: -6351963341598465743
+    second: Tractor_ProfilePicture_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HeartSpritesheetDown_0
+      name: Tractor_ProfilePicture_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 4
-        width: 26
-        height: 25
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9d4ee33c5e4ea480800000000000000
-      internalID: -8886078856840196707
+      spriteID: 13168b5befa49d7a0800000000000000
+      internalID: -6351963341598465743
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      HeartSpritesheetDown_0: -8886078856840196707
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -15,11 +15,13 @@ public class EndingManager : MonoBehaviour
         if (GameManager.Instance.GameEnding == GameEnding.good)
         {
             endingImage.sprite = endingImages[0];
+            endingMusicAudioSource.volume = 0.3f;
             PlayMusic(endingMusic[0]);
         }
         else if (GameManager.Instance.GameEnding == GameEnding.bad)
         {
             endingImage.sprite = endingImages[1];
+            endingMusicAudioSource.volume = 1;
             PlayMusic(endingMusic[1]);
         }
         else
@@ -31,7 +33,6 @@ public class EndingManager : MonoBehaviour
     private void PlayMusic(AudioClip clip)
     {
         endingMusicAudioSource.clip = clip;
-        endingMusicAudioSource.volume = 1;
         endingMusicAudioSource.loop = true;
         endingMusicAudioSource.Play();
     }
