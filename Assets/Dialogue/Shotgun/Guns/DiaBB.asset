@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fafeb349f8677bb4f9142b4a425537ab, type: 3}
-  m_Name: AGIntroPlayer
+  m_Name: DiaBB
   m_EditorClassIdentifier: 
   speaker: {fileID: 11400000, guid: 6d6018ace0f186140b980cb63875cca9, type: 2}
-  text: ...
+  text: "HE\u2019S PULLING HIS #%@$ OUT!!!!!"
   responses:
-  - {fileID: 11400000, guid: 16593c37c0dbd3340a790a6e8e7fbe5a, type: 2}
-  nextNodes:
-  - {fileID: 11400000, guid: 684866735425c7f458ada0eb6e8cf774, type: 2}
+  - {fileID: 11400000, guid: 7d3eda73f6998da4b9a3bf2ee1401b58, type: 2}
+  - {fileID: 11400000, guid: bcfd856629c6c704a8b3f70bf960f313, type: 2}
+  nextNodes: []
   tags: []

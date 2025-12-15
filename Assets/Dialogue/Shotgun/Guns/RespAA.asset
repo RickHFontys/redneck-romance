@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b88e3a9a17c27dd418dd7b267ecd2511, type: 3}
-  m_Name: ARespA
+  m_Name: RespAA
   m_EditorClassIdentifier: 
-  text: 'So what kind of gun are you? '
-  loveChange: 0
+  text: Type shit.
+  loveChange: 5
   tags:
-  - happy
+  - neutral
   leftHandReaction: 0
-  rightHandReaction: 3
+  rightHandReaction: 0

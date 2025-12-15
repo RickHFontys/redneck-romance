@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fafeb349f8677bb4f9142b4a425537ab, type: 3}
-  m_Name: AGIntroPlayer
+  m_Name: DiaBA
   m_EditorClassIdentifier: 
   speaker: {fileID: 11400000, guid: 6d6018ace0f186140b980cb63875cca9, type: 2}
-  text: ...
+  text: Wait, then why did you tell me this?
   responses:
-  - {fileID: 11400000, guid: 16593c37c0dbd3340a790a6e8e7fbe5a, type: 2}
-  nextNodes:
-  - {fileID: 11400000, guid: 684866735425c7f458ada0eb6e8cf774, type: 2}
+  - {fileID: 11400000, guid: afad4b0f532f8c64f9acd6b180640b2d, type: 2}
+  - {fileID: 11400000, guid: e808e1c94b49180429c0922585c272c4, type: 2}
+  nextNodes: []
   tags: []

@@ -2272,6 +2272,7 @@ MonoBehaviour:
   secondAmendmentSprites: []
   topicPool:
   - {fileID: 11400000, guid: 6f29fa69db7894447a4ffe7f202b1996, type: 2}
+  - {fileID: 11400000, guid: 76ae1b77e41522b45a23f5e26c71cd41, type: 2}
   goodEndingNode: {fileID: 11400000, guid: 4ad61f1bcf39e49408b3721e4adc45ef, type: 2}
   badEndingNode: {fileID: 11400000, guid: ee0a889e3eea6df42aa34170180c63ff, type: 2}
   endingThreshold: 50
