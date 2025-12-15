@@ -1627,7 +1627,11 @@ MonoBehaviour:
   backButton: {fileID: 2062148163706466109}
   menuButton: {fileID: 4241130823181870713}
   quitButton: {fileID: 1723986695510434539}
-  buttonSFX: {fileID: 8300000, guid: 8c97a8a56f5004d43a8c104b219d150d, type: 3}
+  audioMixer: {fileID: 24100000, guid: 19d06576240c8864e97627b80f5bd709, type: 2}
+  masterSlider: {fileID: 1739639608402519653}
+  musicSlider: {fileID: 877115375534707884}
+  sfxSlider: {fileID: 980115564352927355}
+  ambienceSlider: {fileID: 4435236989118206737}
   crossfade: {fileID: 0}
 --- !u!1 &5342036617069060383
 GameObject:

@@ -4278,10 +4278,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1021571344}
     - target: {fileID: 1311605166132810247, guid: 1a58383b769e3bf4c85ccc98dff117cd, type: 3}
-      propertyPath: buttonSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: 405f2e3afb14c814eb07fa37db354271, type: 3}
-    - target: {fileID: 1311605166132810247, guid: 1a58383b769e3bf4c85ccc98dff117cd, type: 3}
       propertyPath: crossfade
       value: 
       objectReference: {fileID: 8136427469588810597}
@@ -4408,10 +4404,6 @@ PrefabInstance:
     - target: {fileID: 5218114039173232811, guid: 1a58383b769e3bf4c85ccc98dff117cd, type: 3}
       propertyPath: m_Name
       value: PauseMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 5218114039173232811, guid: 1a58383b769e3bf4c85ccc98dff117cd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5352214750578653846, guid: 1a58383b769e3bf4c85ccc98dff117cd, type: 3}
       propertyPath: m_AnchorMax.x
