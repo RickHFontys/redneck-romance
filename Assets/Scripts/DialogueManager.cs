@@ -1,89 +1,123 @@
-using Microsoft.Unity.VisualStudio.Editor;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections.Generic; // Needed for Lists
 
 public class DialogueManager : MonoBehaviour
 {
-    private DialogueNode currentNode;
-    [SerializeField] private DialogueNode shotgunStartNode;
-    [SerializeField] private DialogueNode tractorStartNode;
-    [SerializeField] private DialogueNode secondAmendmentStartNode;
+    [Header("Dependencies")]
+    public HandController handController;
 
+    [Header("Shotgun Character")]
+    [SerializeField] private List<DialogueNode> shotgunStartNodes;
     [SerializeField] private AudioClip[] shotgunSoundFX;
-    [SerializeField] private AudioClip[] tractorSoundFX;
-    [SerializeField] private AudioClip[] secondndAmendmentSoundFX;
-
     [SerializeField] private Image[] shotgunSprites;
+
+    [Header("Tractor Character")]
+    [SerializeField] private List<DialogueNode> tractorStartNodes;
+    [SerializeField] private AudioClip[] tractorSoundFX;
     [SerializeField] private Image[] tractorSprites;
+
+    [Header("2nd Amendment Character")]
+    [SerializeField] private List<DialogueNode> secondAmendmentStartNodes;
+    [SerializeField] private AudioClip[] secondndAmendmentSoundFX;
     [SerializeField] private Image[] secondAmendmentSprites;
+
+    [Header("Topic System")]
+    [SerializeField] private List<DialogueNode> topicPool;
+    [SerializeField] private DialogueNode goodEndingNode;
+    [SerializeField] private DialogueNode badEndingNode;
+    [SerializeField] private int endingThreshold = 50;
+
+    private List<DialogueNode> currentAvailableTopics;
+
+    private DialogueNode currentNode;
 
     public delegate void DialogueUpdated(DialogueNode node);
     public event DialogueUpdated OnDialogueUpdated;
 
-    public HandController handController;
-
-
     private void Start()
     {
+        // Reset the available topics list at the start of the game
+        currentAvailableTopics = new List<DialogueNode>(topicPool);
+
         Character chosenCharacter = GameManager.Instance.ChosenCharacter;
+        List<DialogueNode> possibleStarts = null;
+
+        // 1. Pick the correct list of start nodes
         switch (chosenCharacter.name)
         {
             case "Shotgun":
-                currentNode = shotgunStartNode;
+                possibleStarts = shotgunStartNodes;
                 break;
             case "Tractor":
-                currentNode = tractorStartNode;
+                possibleStarts = tractorStartNodes;
                 break;
             case "2ndAmendment":
-                currentNode = secondAmendmentStartNode;
-                break;
-            default:
+                possibleStarts = secondAmendmentStartNodes;
                 break;
         }
-
-        if (currentNode != null)
+        
+        //Random start node
+        if (possibleStarts != null && possibleStarts.Count > 0)
+        {
+            int randomIndex = Random.Range(0, possibleStarts.Count);
+            currentNode = possibleStarts[randomIndex];
             OnDialogueUpdated?.Invoke(currentNode);
+        }
     }
 
     public void ChooseResponse(ResponseOption response)
-{
-    // Apply rizz / love change
-    Rizzometer.Instance.ApplyChange(response.loveChange);
-
-    //Apply character-specific reactions (sprite + SFX)
-    switch (GameManager.Instance.ChosenCharacter.characterName)
     {
-        case "Shotty": // Shotgun
-            ApplyShotgunSFXAndSprite(response.loveChange);
-            break;
+        Rizzometer.Instance.ApplyChange(response.loveChange);
 
-        case "Angelica": // Tractor
-            ApplyTractorSFXAndSprite(response.loveChange);
-            break;
+        AudioClip[] currentClips = null;
+        Image[] currentSprites = null;
 
-        case "Amanda II": // 2nd Amendment
-            ApplySecondAmendmentSFXAndSprite(response.loveChange);
-            break;
-        default:
-            break;
+        switch (GameManager.Instance.ChosenCharacter.characterName)
+        {
+            case "Shotty": // Shotgun
+                currentClips = shotgunSoundFX;
+                currentSprites = shotgunSprites;
+                break;
+            case "Angelica": // Tractor
+                currentClips = tractorSoundFX;
+                currentSprites = tractorSprites;
+                break;
+            case "Amanda II": // 2nd Amendment
+                currentClips = secondndAmendmentSoundFX;
+                currentSprites = secondAmendmentSprites;
+                break;
+        }
+
+        if (currentClips != null)
+        {
+            PlayReaction(currentClips, currentSprites, response.loveChange);
+        }
+
+        handController.SetHands(response);
+
+        int index = currentNode.responses.IndexOf(response);
+
+        //Check if a next node exists for this response
+        if (index >= 0 && index < currentNode.nextNodes.Count && currentNode.nextNodes[index] != null)
+        {
+            DialogueNode nextNode = currentNode.nextNodes[index];
+            if (currentAvailableTopics.Contains(nextNode))
+            {
+                currentAvailableTopics.Remove(nextNode);
+                Debug.Log($"[DialogueManager] Topic '{nextNode.name}' selected and removed. Remaining: {currentAvailableTopics.Count}");
+            }
+
+            currentNode = nextNode;
+            OnDialogueUpdated?.Invoke(currentNode);
+        }
+        else
+        {
+            //If no next node is assigned, we assume the conversation branch has ended.
+            //Triggers the topic selection node.
+            GenerateTopicSelection();
+        }
     }
-
-    //Apply hand reactions based on player response
-    handController.SetHands(response);
-
-    // Continue dialogue logic
-    int index = currentNode.responses.IndexOf(response);
-
-    if (index >= 0 && index < currentNode.nextNodes.Count)
-    {
-        currentNode = currentNode.nextNodes[index];
-        OnDialogueUpdated?.Invoke(currentNode);
-    }
-    else
-    {
-        Debug.LogWarning("No next node available. Dialogue ends.");
-    }
-}
 
     public void SetNode(DialogueNode node)
     {
@@ -91,51 +125,59 @@ public class DialogueManager : MonoBehaviour
         OnDialogueUpdated?.Invoke(node);
     }
 
-    private void ApplyShotgunSFXAndSprite(int loveChange)
+    private void GenerateTopicSelection()
     {
-        if (loveChange >= -5 && loveChange <= 5)
+        Debug.Log($"[DialogueManager] Switching to topics. Remaining: {currentAvailableTopics.Count}");
+
+        //Check for End Game
+        if (currentAvailableTopics.Count == 0)
         {
-            SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(shotgunSoundFX[0], transform, 1);
+            int currentRizz = Rizzometer.Instance.Love;
+            DialogueNode endingNode = (currentRizz >= endingThreshold) ? goodEndingNode : badEndingNode;
+
+            if (endingNode != null) SetNode(endingNode);
+            else Debug.LogError("Ending Node is NULL!");
+
+            return;
         }
-        else if (loveChange > 5)
+
+        DialogueNode hubNode = ScriptableObject.CreateInstance<DialogueNode>();
+        hubNode.speaker = currentNode.speaker;
+        hubNode.text = "...";
+        hubNode.responses = new List<ResponseOption>();
+        hubNode.nextNodes = new List<DialogueNode>();
+
+        List<DialogueNode> tempPool = new List<DialogueNode>(currentAvailableTopics);
+
+        int topicsToSelect = Mathf.Min(2, tempPool.Count);
+
+        for (int i = 0; i < topicsToSelect; i++)
         {
-            SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(shotgunSoundFX[1], transform, 1);
+            int randomIndex = Random.Range(0, tempPool.Count);
+            DialogueNode selectedTopic = tempPool[randomIndex];
+
+            tempPool.RemoveAt(randomIndex);
+
+            ResponseOption topicButton = ScriptableObject.CreateInstance<ResponseOption>();
+            topicButton.text = "Talk about " + selectedTopic.name;
+            topicButton.tags = new List<string>();
+
+            hubNode.responses.Add(topicButton);
+            hubNode.nextNodes.Add(selectedTopic);
         }
-        else if (loveChange < -5)
-        {
-            SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(shotgunSoundFX[2], transform, 1);
-        }
+
+        SetNode(hubNode);
     }
 
-    private void ApplyTractorSFXAndSprite(int loveChange)
+    private void PlayReaction(AudioClip[] clips, Image[] sprites, int loveChange)
     {
-        if (loveChange >= -5 && loveChange <= 5)
-        {
-            SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(tractorSoundFX[0], transform, 1);
-        }
-        else if (loveChange > 5)
-        {
-            SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(tractorSoundFX[1], transform, 1);
-        }
-        else if (loveChange < -5)
-        {
-            SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(tractorSoundFX[2], transform, 1);
-        }
-    }
+        int index = 0;
+        if (loveChange > 5) index = 1;
+        else if (loveChange < -5) index = 2;
 
-    private void ApplySecondAmendmentSFXAndSprite(int loveChange)
-    {
-        if (loveChange >= -5 && loveChange <= 5)
+        if (clips.Length > index && clips[index] != null)
         {
-            SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(secondndAmendmentSoundFX[0], transform, 1);
-        }
-        else if (loveChange > 5)
-        {
-            SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(secondndAmendmentSoundFX[1], transform, 1);
-        }
-        else if (loveChange < -5)
-        {
-            SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(secondndAmendmentSoundFX[2], transform, 1);
+            SoundFXManager.Instance.PlaySoundFXClipWithRandomPitch(clips[index], transform, 1);
         }
     }
 }

@@ -57,7 +57,7 @@ public class DialogueUI : MonoBehaviour
                 var option = node.responses[i];
 
                 responseButtons[i].gameObject.SetActive(true);
-                responseButtons[i].GetComponentInChildren<Text>().text = option.text;
+                responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = option.text;
 
                 int index = i;
                 responseButtons[i].onClick.RemoveAllListeners();
@@ -66,6 +66,7 @@ public class DialogueUI : MonoBehaviour
                     ApplyCharacterExpression(option);
                     manager.ChooseResponse(node.responses[index]);
                 });
+                responseButtons[i].onClick.AddListener(() => SoundFXManager.Instance.PlayButtonSFX(transform));
             }
             else
             {
@@ -135,9 +136,9 @@ public class DialogueUI : MonoBehaviour
         {
             characterRenderer.sprite = chara.angrySprite;
         }
-        else if (option.tags.Contains("sad") && chara.sadSprite != null)
+        else if (option.tags.Contains("confused") && chara.confusedSprite != null)
         {
-            characterRenderer.sprite = chara.sadSprite;
+            characterRenderer.sprite = chara.confusedSprite;
         }
         else if (option.tags.Contains("neutral") && chara.neutralSprite != null)
         {

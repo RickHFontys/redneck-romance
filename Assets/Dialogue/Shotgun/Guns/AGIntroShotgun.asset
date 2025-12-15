@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fafeb349f8677bb4f9142b4a425537ab, type: 3}
+  m_Name: AGIntroShotgun
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 6d6018ace0f186140b980cb63875cca9, type: 2}
+  text: Sooo have you ever dated a gun before?
+  responses:
+  - {fileID: 11400000, guid: 2d8500ed96ee9774b91ff078d3e823c0, type: 2}
+  - {fileID: 11400000, guid: 3d6715f1f78f9c04b80bde83a03d4c83, type: 2}
+  nextNodes:
+  - {fileID: 11400000, guid: ed6bbcddb63ca614c90bb218b79e28f9, type: 2}
+  - {fileID: 11400000, guid: 28c60c3f80db55c44a6f5cbb3f3b4ab1, type: 2}
+  tags: []

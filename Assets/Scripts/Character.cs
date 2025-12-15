@@ -1,4 +1,3 @@
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Character", menuName = "Scriptable Objects/Character")]
@@ -12,6 +11,6 @@ public class Character : ScriptableObject
     public Sprite happySprite;
     public Sprite angrySprite;
     public Sprite neutralSprite;
-    public Sprite sadSprite;
+    public Sprite confusedSprite;
 
 }

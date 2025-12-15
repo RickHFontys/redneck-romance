@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fafeb349f8677bb4f9142b4a425537ab, type: 3}
+  m_Name: DiaA
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 6d6018ace0f186140b980cb63875cca9, type: 2}
+  text: I @!#%in' hope not.
+  responses:
+  - {fileID: 11400000, guid: 2d890e3f9ce9fcf41aa4b44e4963311d, type: 2}
+  - {fileID: 11400000, guid: 3f5571023983e2c4f9c557e9e27006d4, type: 2}
+  nextNodes:
+  - {fileID: 11400000, guid: d089cca7376224840874721350b8daf5, type: 2}
+  - {fileID: 11400000, guid: 424821ee2c9efca41be1a86451ee544f, type: 2}
+  tags: []

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fafeb349f8677bb4f9142b4a425537ab, type: 3}
+  m_Name: Dia1P
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 6d6018ace0f186140b980cb63875cca9, type: 2}
+  text: Benelli supernova with Zenit B10M handguard, Daniel defence M4 railed upper
+    receiver, VZ 1911 Hydra drip panels, Schmitt & Bender 4-16x50mm Klassik scope,
+    and JMAC 8C muzzle brake :)
+  responses:
+  - {fileID: 11400000, guid: 23a0a54b30e1e6c45ae1ce2cfed89853, type: 2}
+  nextNodes:
+  - {fileID: 11400000, guid: b049c6ed4c41ee942bc4d640c0b95231, type: 2}
+  tags: []

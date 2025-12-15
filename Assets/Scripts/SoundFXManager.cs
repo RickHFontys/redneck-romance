@@ -6,6 +6,7 @@ public class SoundFXManager : MonoBehaviour
     public static SoundFXManager Instance { get {return _instance; } }
 
     [SerializeField] private AudioSource soundFXObject;
+    [SerializeField] private AudioClip buttonSFX;
 
     private void Awake()
     {
@@ -44,7 +45,24 @@ public class SoundFXManager : MonoBehaviour
 
         audioSource.volume = volume;
 
-        audioSource.pitch = UnityEngine.Random.Range(1f, 1.5f);
+        audioSource.pitch = Random.Range(1f, 1.5f);
+
+        audioSource.Play();
+
+        float clipLength = audioSource.clip.length;
+
+        Destroy(audioSource.gameObject, clipLength);
+    }
+
+    public void PlayButtonSFX(Transform spawnTransform)
+    {
+        AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
+
+        audioSource.clip = buttonSFX;
+
+        audioSource.volume = 1;
+
+        audioSource.pitch = Random.Range(1f, 1.5f);
 
         audioSource.Play();
 
