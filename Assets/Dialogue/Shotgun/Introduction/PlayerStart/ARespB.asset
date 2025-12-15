@@ -15,6 +15,6 @@ MonoBehaviour:
   text: Could you... Shoot me please? <3
   loveChange: -10
   tags:
-  - happy
+  - angry
   leftHandReaction: 0
   rightHandReaction: 3
