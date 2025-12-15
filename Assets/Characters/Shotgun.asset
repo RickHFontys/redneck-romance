@@ -16,5 +16,5 @@ MonoBehaviour:
   defaultSprite: {fileID: 17450447491162352, guid: c6de00becfc28824a8b90caedb1351b3, type: 3}
   happySprite: {fileID: 5087884616720737731, guid: c6de00becfc28824a8b90caedb1351b3, type: 3}
   angrySprite: {fileID: -8748882734853009771, guid: c6de00becfc28824a8b90caedb1351b3, type: 3}
-  neutralSprite: {fileID: 0}
-  sadSprite: {fileID: 0}
+  neutralSprite: {fileID: 17450447491162352, guid: c6de00becfc28824a8b90caedb1351b3, type: 3}
+  confusedSprite: {fileID: 8518857350414691307, guid: c6de00becfc28824a8b90caedb1351b3, type: 3}
