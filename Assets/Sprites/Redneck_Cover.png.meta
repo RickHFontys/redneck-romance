@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Redneck_Cover_0: -686175959348691324
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
