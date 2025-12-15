@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88e3a9a17c27dd418dd7b267ecd2511, type: 3}
   m_Name: RespB
   m_EditorClassIdentifier: 
-  text: "I stuck my ^@%# in my dad\u2019s shotgun once, does that count?"
+  text: "I stuck my ^@%# in my dad\u2019s shotgun once."
   loveChange: -30
   tags:
   - confused

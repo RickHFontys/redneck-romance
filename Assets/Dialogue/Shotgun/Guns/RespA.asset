@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88e3a9a17c27dd418dd7b267ecd2511, type: 3}
   m_Name: RespA
   m_EditorClassIdentifier: 
-  text: I dated a Mosin nagant in high school, her name is John KGB Agent.
+  text: I dated a Mosin nagant, her name is John KGB Agent.
   loveChange: -5
   tags:
   - neutral
