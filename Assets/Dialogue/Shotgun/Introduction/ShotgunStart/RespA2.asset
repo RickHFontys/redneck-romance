@@ -16,5 +16,5 @@ MonoBehaviour:
   loveChange: 15
   tags:
   - happy
-  leftHandReaction: 3
-  rightHandReaction: 1
+  leftHandReaction: 1
+  rightHandReaction: 3

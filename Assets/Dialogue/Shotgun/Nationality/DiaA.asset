@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fafeb349f8677bb4f9142b4a425537ab, type: 3}
+  m_Name: DiaA
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 6d6018ace0f186140b980cb63875cca9, type: 2}
+  text: About 2/3rd of a mile :)
+  responses:
+  - {fileID: 11400000, guid: a04eae6b03d1d1a40ab6781b20d94b89, type: 2}
+  - {fileID: 11400000, guid: 450bd63bf12ef6a49bcab1be52b0c6a8, type: 2}
+  nextNodes:
+  - {fileID: 11400000, guid: 0cad00addfbd3ea45b2695d8cc45a7d7, type: 2}
+  - {fileID: 11400000, guid: e99c5f60d1514e545a3da6cf1a2dc0ad, type: 2}
+  tags: []

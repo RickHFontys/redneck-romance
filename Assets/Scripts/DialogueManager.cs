@@ -9,7 +9,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Shotgun Character")]
     // CHANGE 1: Changed single start node to a List for randomness
-    [SerializeField] private List<DialogueNode> shotgunStartNodes; 
+    [SerializeField] private List<DialogueNode> shotgunStartNodes;
     [SerializeField] private AudioClip[] shotgunSoundFX;
     [SerializeField] private Image[] shotgunSprites;
 
@@ -26,13 +26,13 @@ public class DialogueManager : MonoBehaviour
     // CHANGE 2: The Topic System
     [Header("Topic System")]
     [Tooltip("Drag your Topic Hub nodes here (Nationality, Guns, etc)")]
-    [SerializeField] private List<DialogueNode> topicPool; 
+    [SerializeField] private List<DialogueNode> topicPool;
     [SerializeField] private DialogueNode goodEndingNode;
     [SerializeField] private DialogueNode badEndingNode;
     [SerializeField] private int endingThreshold = 50;
-    
+
     // We use this list to track which topics we haven't used yet
-    private List<DialogueNode> currentAvailableTopics; 
+    private List<DialogueNode> currentAvailableTopics;
 
     private DialogueNode currentNode;
 
@@ -98,7 +98,7 @@ public class DialogueManager : MonoBehaviour
         {
             PlayReaction(currentClips, currentSprites, response.loveChange);
         }
-        
+
         handController.SetHands(response);
         // ------------------------------------------
 
@@ -126,32 +126,43 @@ public class DialogueManager : MonoBehaviour
         OnDialogueUpdated?.Invoke(node);
     }
 
-    // CHANGE 4: The Topic Generator
+    // CHANGE 4: The Topic Generator (With Debugging)
     private void GenerateTopicSelection()
     {
+        Debug.Log($"[DialogueManager] Attempting to switch topics. Topics available: {currentAvailableTopics.Count}");
+
         // A. Check for End Game (No topics left)
         if (currentAvailableTopics.Count == 0)
         {
-            int currentRizz = Rizzometer.Instance.Love; // Make sure Rizzometer has this property
-            
-            if (currentRizz >= endingThreshold)
-                SetNode(goodEndingNode);
+            Debug.Log("[DialogueManager] No topics left. Checking for End Game.");
+            int currentRizz = Rizzometer.Instance.Love; // Check your property name here (Love vs CurrentValue)
+
+            DialogueNode endingNode = (currentRizz >= endingThreshold) ? goodEndingNode : badEndingNode;
+
+            if (endingNode != null)
+            {
+                SetNode(endingNode);
+            }
             else
-                SetNode(badEndingNode);
-                
+            {
+                Debug.LogError("[DialogueManager] Ending Node is NULL! Check inspector assignments.");
+            }
             return;
         }
 
         // B. Create the "Hub" Node on the fly
         DialogueNode hubNode = ScriptableObject.CreateInstance<DialogueNode>();
-        hubNode.speaker = currentNode.speaker; // Or null if you want no name
-        hubNode.text = "..."; // The awkward silence before picking a topic
+        hubNode.speaker = currentNode.speaker;
+        hubNode.text = "...";
+
+        // IMPORTANT: Initialize these lists!
         hubNode.responses = new List<ResponseOption>();
         hubNode.nextNodes = new List<DialogueNode>();
 
         // C. Pick up to 2 random topics
         int topicsToSelect = Mathf.Min(2, currentAvailableTopics.Count);
-        
+        Debug.Log($"[DialogueManager] Selecting {topicsToSelect} topics to display.");
+
         for (int i = 0; i < topicsToSelect; i++)
         {
             int randomIndex = Random.Range(0, currentAvailableTopics.Count);
@@ -162,16 +173,15 @@ public class DialogueManager : MonoBehaviour
 
             // Create a button for this topic
             ResponseOption topicButton = ScriptableObject.CreateInstance<ResponseOption>();
-            
-            // NOTE: You can add a "buttonText" string to your DialogueNode script 
-            // if you want specific labels like "Ask about Guns". 
-            // For now, I'll use a generic placeholder or the node name.
-            topicButton.text = "Talk about " + selectedTopicStartNode.name; 
-            
+            topicButton.text = "Talk about " + selectedTopicStartNode.name;
+            // Initialize tags to prevent UI errors
+            topicButton.tags = new List<string>();
+
             hubNode.responses.Add(topicButton);
             hubNode.nextNodes.Add(selectedTopicStartNode);
         }
 
+        Debug.Log($"[DialogueManager] Hub Node Created with {hubNode.responses.Count} responses.");
         SetNode(hubNode);
     }
 

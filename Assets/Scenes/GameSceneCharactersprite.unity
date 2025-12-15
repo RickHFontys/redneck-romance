@@ -2270,9 +2270,10 @@ MonoBehaviour:
   secondAmendmentStartNodes: []
   secondndAmendmentSoundFX: []
   secondAmendmentSprites: []
-  topicPool: []
-  goodEndingNode: {fileID: 0}
-  badEndingNode: {fileID: 0}
+  topicPool:
+  - {fileID: 11400000, guid: 6f29fa69db7894447a4ffe7f202b1996, type: 2}
+  goodEndingNode: {fileID: 11400000, guid: 4ad61f1bcf39e49408b3721e4adc45ef, type: 2}
+  badEndingNode: {fileID: 11400000, guid: ee0a889e3eea6df42aa34170180c63ff, type: 2}
   endingThreshold: 50
 --- !u!4 &974734644
 Transform:

@@ -10,14 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fafeb349f8677bb4f9142b4a425537ab, type: 3}
-  m_Name: AIntoPlayerStart
+  m_Name: AGIntroShotgun
   m_EditorClassIdentifier: 
   speaker: {fileID: 11400000, guid: 6d6018ace0f186140b980cb63875cca9, type: 2}
-  text: ...
-  responses:
-  - {fileID: 11400000, guid: e09aea613d5841643b7976fb761c5c1f, type: 2}
-  - {fileID: 11400000, guid: ee6dca6b5d33bdb4ea5a9cf6d9360b2a, type: 2}
-  nextNodes:
-  - {fileID: 11400000, guid: ee1c2088135ff784ea34ce200a19f6fd, type: 2}
-  - {fileID: 11400000, guid: 234aec6ae96e0504bb0c6ce836bdf01f, type: 2}
+  text: Sooo have you ever dated a gun before?
+  responses: []
+  nextNodes: []
   tags: []

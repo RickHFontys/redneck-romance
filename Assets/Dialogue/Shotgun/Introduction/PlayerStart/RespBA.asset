@@ -16,5 +16,5 @@ MonoBehaviour:
   loveChange: -10
   tags:
   - confused
-  leftHandReaction: 1
-  rightHandReaction: 0
+  leftHandReaction: 0
+  rightHandReaction: 1

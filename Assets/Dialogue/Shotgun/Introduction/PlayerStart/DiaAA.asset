@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speaker: {fileID: 11400000, guid: 6d6018ace0f186140b980cb63875cca9, type: 2}
   text: '*Shotty stares at you for a sec*'
-  responses: []
+  responses:
+  - {fileID: 11400000, guid: 2fea10d1ca91b4840abe16e7cfe97a8d, type: 2}
   nextNodes: []
   tags: []
