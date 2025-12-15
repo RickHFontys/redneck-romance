@@ -26,21 +26,25 @@ public class EndMenuManager : MonoBehaviour
 
     private void OnCreditsPressed()
     {
+        SoundFXManager.Instance.PlayButtonSFX(transform);
         creditsPage.SetActive(true);
     }
 
     private void OnCreditsBackPressed()
     {
+        SoundFXManager.Instance.PlayButtonSFX(transform);
         creditsPage.SetActive(false);
     }
 
     private void OnQuitPressed()
     {
+        SoundFXManager.Instance.PlayButtonSFX(transform);
         Application.Quit();
     }
 
     private void OnMenuPressed()
     {
+        SoundFXManager.Instance.PlayButtonSFX(transform);
         StartCoroutine(crossfade.ChangeScene("StartScene"));
     }
 }

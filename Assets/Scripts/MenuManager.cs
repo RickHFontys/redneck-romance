@@ -35,34 +35,40 @@ public class MenuManager : MonoBehaviour
 
     private void OnStartPressed()
     {
+        SoundFXManager.Instance.PlayButtonSFX(transform);
         dateSelectionPanel.SetActive(true);
     }
 
     private void OnQuitPressed()
     {
+        SoundFXManager.Instance.PlayButtonSFX(transform);
         Application.Quit();
     }
 
     private void OnShotgunChosen()
     {
+        SoundFXManager.Instance.PlayButtonSFX(transform);
         GameManager.Instance.ChosenCharacter = shotgun;
         StartCoroutine(crossfade.ChangeScene("GameSceneCharactersprite"));
     }
 
     private void OnTractorChosen()
     {
+        SoundFXManager.Instance.PlayButtonSFX(transform);
         GameManager.Instance.ChosenCharacter = tractor;
         StartCoroutine(crossfade.ChangeScene("GameSceneCharactersprite"));
     }
 
     private void OnSecondAmendmentChosen()
     {
+        SoundFXManager.Instance.PlayButtonSFX(transform);
         GameManager.Instance.ChosenCharacter = secondAmendment;
         StartCoroutine(crossfade.ChangeScene("GameSceneCharactersprite"));
     }
 
     private void OnBackToMenuPressed()
     {
+        SoundFXManager.Instance.PlayButtonSFX(transform);
         dateSelectionPanel.SetActive(false);
     }
 }

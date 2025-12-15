@@ -72,15 +72,25 @@ public class PauseMenuManager : MonoBehaviour
         PlayerPrefs.SetFloat("AmbienceVol", value);
     }
 
-    private void OnQuitPressed() => Application.Quit();
+    private void OnQuitPressed()
+    {
+        SoundFXManager.Instance.PlayButtonSFX(transform);
+        Application.Quit();
+    }
 
     private void OnMenuPressed()
     {
+        SoundFXManager.Instance.PlayButtonSFX(transform);
+        Application.Quit();
         Time.timeScale = 1;
         StartCoroutine(crossfade.ChangeScene("StartScene"));
     }
 
-    private void OnBackPressed() => GameManager.Instance.Pause();
+    private void OnBackPressed()
+    {
+        SoundFXManager.Instance.PlayButtonSFX(transform);
+        GameManager.Instance.Pause();
+    }
     
     private void OnDisable() => PlayerPrefs.Save();
 }

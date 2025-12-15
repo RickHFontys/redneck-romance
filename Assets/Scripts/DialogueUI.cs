@@ -66,6 +66,7 @@ public class DialogueUI : MonoBehaviour
                     ApplyCharacterExpression(option);
                     manager.ChooseResponse(node.responses[index]);
                 });
+                responseButtons[i].onClick.AddListener(() => SoundFXManager.Instance.PlayButtonSFX(transform));
             }
             else
             {
